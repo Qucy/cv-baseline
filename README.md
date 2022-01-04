@@ -25,7 +25,7 @@ The paper is publish on 2012 by Alex Krizhevsky and named **ImageNet Classificat
 
 Below image depicting the AlexNet architecture, we will not go through it here, because it quite straight forward here. The only thing I want to mentioned here is the network split into 2 parts because the author trained this 2 parts on different GPU due to memory constrain at that time.
 
-![alexnet](https://github.com/Qucy/cv-baseline/master/img/alexnet.jpg)
+![alexnet](https://github.com/Qucy/cv-baseline/blob/master/img/alexnet.jpg)
 
 ##### 1.3 Training tricks
 
