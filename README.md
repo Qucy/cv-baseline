@@ -85,5 +85,46 @@ Below image depicting the VGG network architecture and different configurations.
 - Since objects in images can be of different size, multi scale training is beneficial to take this into account during training.
 
 
+### 3. Google Net - Going deeper and wider
 
+##### 2.1 Abstraction
+
+Below are 4 papers published for Google Net from 2015 to 2017, we're going to look at key points in these papers.
+
+- Going Deeper with convolutions - CVPR 2015
+- Batch Normalization: Accelerating Deep Network Training by Reducing Internal Covariate Shift - 2015
+- Rethinking the Inception Architecture for Computer Vision - 2015
+- Inception V4, Inception ResNet and the Impact of Residual Connection on Learning - AAAI 2017
+
+The performance for all the Google Net is as below.
+
+![gooleNetPerformance](https://github.com/Qucy/cv-baseline/blob/master/img/gooleNetPerformance.JPG)
+
+##### 2.2 Network Architecture
+
+The overall architecture for GoogleNet V1 is as below, it consists by lots of Inception module(highlighted in green box) and have 2 middle layer output highlighted in blue box. The new version has the similar overall architecture, so we will not demonstrate here. 
+
+![googleNet](https://github.com/Qucy/cv-baseline/blob/master/img/googleNet.jpg)
+
+
+
+##### 2.3 GoogleNet V1
+
+- ILSVRC 2014 classification first place, object detection first place, object localization second place
+
+- Introduce Inception module, use multiple dimensions filters(1x1, 3x3, 5x5) (borrow the ideal from Gabor filters), use 1x1 convolution to reduce dimensions.
+
+  ![inceptionV1](https://github.com/Qucy/cv-baseline/blob/master/img/inceptionV1.jpg)
+
+- Adding middle layer outs for loss calculation to prevent vanished gradient problem
+
+- Use learning rate decay policy, decreasing learning rate 4% every 8 epochs
+
+- Photometric distortions in data argumentation is useful(adjust Brightness, Saturation and Contrast)
+
+- Use multi-crop in testing phase, crop 1 image to 144 images.
+
+- Use ensembled models(7 models) to produce ensembled predictions.
+
+##### 2.4 GoogleNet V2
 
