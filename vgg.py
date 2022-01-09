@@ -80,3 +80,16 @@ vgg16.compile(optimizer=tf.keras.optimizers.Adam(learning_rate=lr),
 # fit
 vgg16.fit(ds_train, validation_data=ds_val, epochs=10)
 # 10 epochs 196/196 [==============================] - 21s 104ms/step - loss: 0.5032 - accuracy: 0.8211 - val_loss: 0.9013 - val_accuracy: 0.7165
+
+#  ============================ or if you don't want write from scratch, you can call API directly ===================================
+# tf.keras.applications.vgg16.VGG16(
+#     include_top=True, weights='imagenet', input_tensor=None,
+#     input_shape=None, pooling=None, classes=1000,
+#     classifier_activation='softmax'
+# )
+
+# tf.keras.applications.vgg19.VGG19(
+#     include_top=True, weights='imagenet', input_tensor=None,
+#     input_shape=None, pooling=None, classes=1000,
+#     classifier_activation='softmax'
+# )
