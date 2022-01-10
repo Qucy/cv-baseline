@@ -1,6 +1,6 @@
 ### AlexNet the first convolution network
 
-##### Abstraction
+##### 1. Abstraction
 
 The paper is publish on 2012 by Alex Krizhevsky and named **ImageNet Classification with Deep Convolution Neural Network**. Below is the abstraction for this paper.
 
@@ -11,13 +11,13 @@ The paper is publish on 2012 by Alex Krizhevsky and named **ImageNet Classificat
 - Use dropout layers to avoid overfitting
 - Surpass second place 10.9% in top-5 error
 
-##### Network Architecture
+##### 2. Network Architecture
 
 Below image depicting the AlexNet architecture, we will not go through it here, because it quite straight forward here. The only thing I want to mentioned here is the network split into 2 parts because the author trained this 2 parts on different GPU due to memory constrain at that time.
 
 ![alexnet](https://github.com/Qucy/cv-baseline/blob/master/img/alexnet.jpg)
 
-##### Training tricks
+##### 3. Training tricks
 
 - Use ReLU as activation function, accelerate training speed, prevent vanished gradient.
 - Local Response Normalization (Not used anymore)
@@ -25,7 +25,7 @@ Below image depicting the AlexNet architecture, we will not go through it here, 
 - Dropout
 - Data argumentation, shift, flip and changing colors
 
-##### Summary & Conclusion from author
+##### 4. Summary & Conclusion from author
 
 - Their(Model) capacity can be controlled by varying their depth and width.
 - All of our experiments suggest that our results can improved simply by waiting for faster GPU and bigger datasets to become available.

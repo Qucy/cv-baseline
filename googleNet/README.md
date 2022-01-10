@@ -1,6 +1,6 @@
 ### Google Net - Going deeper and wider
 
-##### Abstraction
+##### 1. Abstraction
 
 Below are 4 papers published for Google Net from 2015 to 2017, we're going to look at key points in these papers.
 
@@ -13,7 +13,7 @@ The performance for all the Google Net is as below.
 
 ![gooleNetPerformance](https://github.com/Qucy/cv-baseline/blob/master/img/gooleNetPerformance.JPG)
 
-##### Network Architecture
+##### 2. Network Architecture
 
 The overall architecture for GoogleNet V1 is as below, it consists by lots of Inception module(highlighted in green box) and have 2 middle layer output highlighted in blue box. The new version has the similar overall architecture, so we will not demonstrate here.
 
@@ -21,7 +21,7 @@ The overall architecture for GoogleNet V1 is as below, it consists by lots of In
 
 
 
-##### GoogleNet V1
+##### 3. GoogleNet V1
 
 - ILSVRC 2014 classification first place, object detection first place, object localization second place
 
@@ -39,7 +39,7 @@ The overall architecture for GoogleNet V1 is as below, it consists by lots of In
 
 - Use ensembled models(7 models) to produce ensembled predictions.
 
-##### GoogleNet V2
+##### 4. GoogleNet V2
 
 - Raised Batch Normalization to reduce ICP(Internal Covariate Shift), by using batch normalization we can:
 - ​    A bigger learning rate to accelerate model converge
@@ -52,7 +52,7 @@ The overall architecture for GoogleNet V1 is as below, it consists by lots of In
 - ​    Borrow ideal from VGG use two 3x3 kernels to replace one 5x5 kernels in Inception module
 - ​    Adding more inception layers and use stride of 2
 
-##### GoogleNet V3
+##### 5. GoogleNet V3
 
 Research background for this paper:
 
@@ -103,7 +103,7 @@ Let's take a look how **inception V2 model architecture** changed compared with 
 
 ![inception_v3_performance](https://github.com/Qucy/cv-baseline/blob/master/img/inception_v3_performance.jpg)
 
-##### GoogleNet V4
+##### 6. GoogleNet V4
 
 **Research background**, to combine the ResNet into Inception model, to achieve a construct a better model. In the paper the author construct 3 models
 

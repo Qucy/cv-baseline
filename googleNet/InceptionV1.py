@@ -135,6 +135,7 @@ ds_val = tf.data.Dataset.from_tensor_slices((x_test, y_test))
 ds_val = ds_val.cache().map(normalize).batch(batch_size).prefetch(buffer_size=AUTO_TUNE)
 
 # inception V1 has too many parameters, i would suggest not train it locally, even my PC with GeFore 1070 8G memory will OOM
+# for simplicity we didn't implement auxiliary loss layer here
 inceptionV1 = InceptionV1(num_classes)
 inceptionV1.compile(optimizer=tf.keras.optimizers.Adam(learning_rate=lr),
                     loss=tf.keras.losses.SparseCategoricalCrossentropy(from_logits=True),
