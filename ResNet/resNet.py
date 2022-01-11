@@ -148,6 +148,16 @@ resnet18.fit(ds_train, validation_data=ds_test, callbacks=[callback], epochs=100
 # resnet18.save_weights('./models/cifar100_resnet18/resnet18.ckpt')
 
 
+# or if you can use pre-trained model as well
+tf.keras.applications.resnet50.ResNet50(include_top=True, weights='imagenet')
+tf.keras.applications.resnet.ResNet101(include_top=True, weights='imagenet')
+tf.keras.applications.resnet.ResNet152(include_top=True, weights='imagenet')
+# for ResNeXt
+tf.keras.applications.resnet_v2.ResNet50V2(include_top=True, weights='imagenet')
+tf.keras.applications.resnet_v2.ResNet101V2(include_top=True, weights='imagenet')
+tf.keras.applications.resnet_v2.ResNet152V2(include_top=True, weights='imagenet')
+
+
 
 
 
