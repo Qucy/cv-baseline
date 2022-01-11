@@ -2,7 +2,7 @@
 
 ##### 1. Papers
 
-There are two papers regarding ResNet:
+There are two papers regarding ResNet and ResNeXt:
 
 - Deep Residual Learning for Image Recognition - CVPR 2016
 - Aggregated Residual Transformations for Deep Neural Networks - CVPR 2017
