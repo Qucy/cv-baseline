@@ -11,7 +11,7 @@ There are two papers regarding ResNet and ResNeXt:
 
 Before introducing ResNet, we need to know that ResNet is not the first deepest CNN. There is another network called Highway Network, which borrows the ideal from LSTM, add another path with gate in the network forward calculation. It become the first deepest CNN with 900 layers at most. ResNet is kind of borrow the ideal from Highway network and add a short cut in network forward calculation. Due to it's simplicity, ResNet become the most popular network in the industry.
 
-A residual block it's like below, it's adding a short cut X and then concat X with F(X) at the end of block. So the formula can be H(x) = F(x) + x, the reason why this is working well, is because when doing back propagation, the partial derivative of x will always be 1, it's fix the vanished gradient problem for a very deep CNN. That's even a very deep ResNet is still trainable and have a good performance.
+A residual block it's like below, it's adding a short cut X and then add X and F(X) at the end of block. So the formula can be H(x) = F(x) + x, the reason why this is working well, is because when doing back propagation, the partial derivative of x will always be 1, it's fix the vanished gradient problem for a very deep CNN. That's even a very deep ResNet is still trainable and have a good performance.
 
 ![residual_block](https://github.com/Qucy/cv-baseline/blob/master/img/residual_block.jpg)
 
