@@ -186,6 +186,22 @@ denseNet121.fit(ds_train, validation_data=ds_test, callbacks=[callback], epochs=
 # looks like DenseNet is quite easy to overfitting, need data argumentation definitely
 
 
+# you can also download pre-trained model
+# tf.keras.applications.densenet.DenseNet121(
+#     include_top=True, weights='imagenet', input_tensor=None,
+#     input_shape=None, pooling=None, classes=1000
+# )
+# tf.keras.applications.densenet.DenseNet201(
+#     include_top=True, weights='imagenet', input_tensor=None,
+#     input_shape=None, pooling=None, classes=1000
+# )
+# tf.keras.applications.densenet.DenseNet201(
+#     include_top=True, weights='imagenet', input_tensor=None,
+#     input_shape=None, pooling=None, classes=1000
+# )
+
+
+
 
 
 
