@@ -8,7 +8,7 @@ os.environ['CPP_TF_MIN_LOG_LEVEL'] = '2'
 print(tf.__version__)
 
 """
-Here we are going to build a ResNet and integrated with any attention modules you want
+Here we are going to build a ResNet and integrated with SE or CBAM attention modules you want
 """
 class ResidualBlock(layers.Layer):
 
@@ -272,7 +272,7 @@ attentionResNet18.fit(ds_train, validation_data=ds_test, callbacks=[callback], e
 # result CIFAR10
 # ResNet18 after 5 epochs -> total 44s 221ms/step - train loss: 0.1360 - train accuracy: 0.9555 - val_loss: 1.7035 - val_accuracy: 0.6153
 # ResNet18 with SE attention after 5 epochs -> total 50s 254ms/step - train loss: 0.1704 - train accuracy: 0.9447 - val_loss: 1.2722 - val_accuracy: 0.6767
-# ResNet18 with CBAM attention after 5 epochs ->
+# ResNet18 with CBAM attention after 5 epochs -> total 58s 292ms/step - train loss: 0.2752 - train accuracy: 0.9056 - val_loss: 1.1372 - val_accuracy: 0.6777
 
 # result CIFAR100
 # ResNet18 after 5 epochs -> total 45s 231ms/step - train loss: 1.1268 - train accuracy: 0.7059 - val_loss: 2.4902 - val_accuracy: 0.3889
