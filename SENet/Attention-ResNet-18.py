@@ -154,6 +154,33 @@ class CBAMBlock(layers.Layer):
         return cbam_feature
 
 
+
+#====================================================================================
+#===============================ECA Attention=======================================
+#====================================================================================
+class ECABlock(layers.Layer):
+    """
+    ECA attention block
+    Global Average pool + Global Max pool -> shared FC layers -> add -> sigmoid * inputs
+    """
+    def __init__(self, filter_nums, b=1, gamma=2):
+        super(ECABlock, self).__init__()
+        self.avg = layers.GlobalAveragePooling2D()
+        self.kernel_size = int(abs((tf.math.log(tf.cast(filter_nums, dtype=tf.float32), 2) + b) / gamma))
+        self.c1 = layers.Conv1D(1, kernel_size=self.kernel_size, padding="same", use_bias=False)
+
+
+    def call(self, inputs, *args, **kwargs):
+        attention = self.avg(inputs)
+        attention = layers.Reshape((-1, 1))(attention)
+        attention = self.c1(attention)
+        attention = tf.nn.sigmoid(attention)
+        attention = layers.Reshape((1, 1, -1))(attention)
+
+        return layers.Multiply()([inputs, attention])
+
+
+
 #====================================================================================
 #===========================ResNet with Attention====================================
 #====================================================================================
@@ -175,19 +202,23 @@ class AttentionResNet(Model):
 
         self.resBlock1 = self.buildResidualBlock(64, layer_dims[0])
         #self.seBlock1 = SEBlock(64)
-        self.cbamBlock1 = CBAMBlock(64)
+        #self.cbamBlock1 = CBAMBlock(64)
+        self.ecaBlock1 = ECABlock(64)
 
         self.resBlock2 = self.buildResidualBlock(128, layer_dims[1], strides=2)
         #self.seBlock2 = SEBlock(128)
-        self.cbamBlock2 = CBAMBlock(128)
+        #self.cbamBlock2 = CBAMBlock(128)
+        self.ecaBlock2 = ECABlock(128)
 
         self.resBlock3 = self.buildResidualBlock(256, layer_dims[2], strides=2)
         #self.seBlock3 = SEBlock(256)
-        self.cbamBlock3 = CBAMBlock(256)
+        #self.cbamBlock3 = CBAMBlock(256)
+        self.ecaBlock3 = ECABlock(256)
 
         self.resBlock4 = self.buildResidualBlock(512, layer_dims[3], strides=2)
         #self.seBlock4 = SEBlock(512)
-        self.cbamBlock4 = CBAMBlock(512)
+        #self.cbamBlock4 = CBAMBlock(512)
+        self.ecaBlock4 = ECABlock(512)
 
         # [b, 512, h, w] => [b, 512, 1, 1]
         self.avgPool = layers.GlobalAveragePooling2D()
@@ -199,19 +230,23 @@ class AttentionResNet(Model):
 
         x = self.resBlock1(x)
         #x = self.seBlock1(x)
-        x = self.cbamBlock1(x)
+        #x = self.cbamBlock1(x)
+        x = self.ecaBlock1(x)
 
         x = self.resBlock2(x)
         #x = self.seBlock2(x)
-        x = self.cbamBlock2(x)
+        #x = self.cbamBlock2(x)
+        x = self.ecaBlock2(x)
 
         x = self.resBlock3(x)
         #x = self.seBlock3(x)
-        x = self.cbamBlock3(x)
+        #x = self.cbamBlock3(x)
+        x = self.ecaBlock3(x)
 
         x = self.resBlock4(x)
         #x = self.seBlock4(x)
-        x = self.cbamBlock4(x)
+        #x = self.cbamBlock4(x)
+        x = self.ecaBlock4(x)
 
         x = self.avgPool(x)
         x = self.fc(x)
@@ -232,7 +267,7 @@ class AttentionResNet(Model):
 batch_size = 256
 AUTO_TUNE = tf.data.AUTOTUNE
 lr = 1e-4
-num_classes = 10
+num_classes = 100
 
 def AttentionResNet18():
     return AttentionResNet([2, 2, 2, 2], num_classes)
@@ -245,7 +280,7 @@ def preprocess(x, y):
 
 
 # loading data
-(x_train, y_train), (x_test, y_test) = tf.keras.datasets.cifar10.load_data()
+(x_train, y_train), (x_test, y_test) = tf.keras.datasets.cifar100.load_data()
 assert x_train.shape == (50000, 32, 32, 3)
 assert x_test.shape == (10000, 32, 32, 3)
 assert y_train.shape == (50000, 1)
@@ -273,8 +308,13 @@ attentionResNet18.fit(ds_train, validation_data=ds_test, callbacks=[callback], e
 # ResNet18 after 5 epochs -> total 44s 221ms/step - train loss: 0.1360 - train accuracy: 0.9555 - val_loss: 1.7035 - val_accuracy: 0.6153
 # ResNet18 with SE attention after 5 epochs -> total 50s 254ms/step - train loss: 0.1704 - train accuracy: 0.9447 - val_loss: 1.2722 - val_accuracy: 0.6767
 # ResNet18 with CBAM attention after 5 epochs -> total 58s 292ms/step - train loss: 0.2752 - train accuracy: 0.9056 - val_loss: 1.1372 - val_accuracy: 0.6777
+# ResNet18 with ECA attention after 5 epochs -> total 47s 240ms/step - train loss: 0.2123 - train accuracy: 0.9369 - val_loss: 0.9626 - val_accuracy: 0.7107
 
 # result CIFAR100
 # ResNet18 after 5 epochs -> total 45s 231ms/step - train loss: 1.1268 - train accuracy: 0.7059 - val_loss: 2.4902 - val_accuracy: 0.3889
 # ResNet18 with SE attention after 5 epochs -> total 52s 264ms/step - train loss: 1.4035 - train accuracy: 0.6179 - val_loss: 2.5279 - val_accuracy: 0.3805
 # ResNet18 with CBAM attention after 5 epochs -> total 56s 285ms/step - train loss: 1.5187 - train accuracy: 0.5837 - val_loss: 2.4526 - val_accuracy: 0.3764
+# ResNet18 with ECA attention after 5 epochs -> total 48s 245ms/step - loss: 1.4265 - accuracy: 0.6116 - val_loss: 2.2543 - val_accuracy: 0.4140
+
+
+## looks like ECA attention is better when using ResNet and CIFAR datasets
