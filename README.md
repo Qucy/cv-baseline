@@ -13,5 +13,7 @@ This challenge contains Image Classification, Object localization, Object detect
 | ResNet    | https://github.com/Qucy/cv-baseline/tree/master/ResNet    |
 | DenseNet  | https://github.com/Qucy/cv-baseline/tree/master/DenseNet  |
 | SENet     | https://github.com/Qucy/cv-baseline/tree/master/SENet     |
+| MobileNet | https://github.com/Qucy/cv-baseline/tree/master/MobileNet |
+
 
 
