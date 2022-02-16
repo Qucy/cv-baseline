@@ -10,7 +10,7 @@ The main trick in MobileNet V1 is to use depthwise separable convolution to repl
 
 ![mobileNetV1](https://github.com/Qucy/cv-baseline/blob/master/img/mobileNetV1.jpg)
 
-Below image compare the normal convolutional block(right) and depthwise convolutional block(left). A normal conv block contains a conv layer, a BN layer and a activation layer. For DW layer it contains a DW Conv layer, a BN a layer, a activation layer, a point wise conv layer, a BN layer and activation layer again.
+Below image compare the normal convolutional block(left) and depthwise convolutional block(right). A normal conv block contains a conv layer, a BN layer and a activation layer. For DW layer it contains a DW Conv layer, a BN a layer, a activation layer, a point wise conv layer, a BN layer and activation layer again.
 
 ![dw_module](https://github.com/Qucy/cv-baseline/blob/master/img/dw_module.jpg)
 
