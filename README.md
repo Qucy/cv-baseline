@@ -16,6 +16,7 @@ This challenge contains Image Classification, Object localization, Object detect
 | MobileNet  | https://github.com/Qucy/cv-baseline/tree/master/MobileNet  |
 | ShuffleNet | https://github.com/Qucy/cv-baseline/tree/master/ShuffleNet |
 | SqueezeNet | https://github.com/Qucy/cv-baseline/tree/master/SqueezeNet |
+| Xception   | https://github.com/Qucy/cv-baseline/tree/master/Xception   |
 
 
 
