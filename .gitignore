@@ -4,3 +4,4 @@ __pycache__/
 2007_val.txt
 *h5
 logs/
+model/

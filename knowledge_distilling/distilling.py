@@ -103,8 +103,7 @@ def t_step(images, labels):
 
 
 if __name__ == '__main__':
-    """ Here we train student and teacher network for the same epochs
-        to see how good for these 2 networks can be and how many epochs will take
+    """ Here we train student only and use pre-trained teacher network to calculate soft loss
     """
     # load teacher model
     teacher = AttentionResNet18(num_classes)
