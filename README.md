@@ -5,18 +5,19 @@ This is an article help me or you to understand some of baseline papers or netwo
 This challenge contains Image Classification, Object localization, Object detection, Object detection from Video, Scene Classification and Scene parsing. Famous models like AlexNet, VGG, GoogleNet, ResNet and DenseNet are come from this competition. We will go through these models one by one.
 
 
-| Networks   | Hyper link                                                 |
-| ---------- | ---------------------------------------------------------- |
-| AlexNet    | https://github.com/Qucy/cv-baseline/tree/master/alexnet    |
-| VGG        | https://github.com/Qucy/cv-baseline/tree/master/vgg        |
-| GoogleNet  | https://github.com/Qucy/cv-baseline/tree/master/googleNet  |
-| ResNet     | https://github.com/Qucy/cv-baseline/tree/master/ResNet     |
-| DenseNet   | https://github.com/Qucy/cv-baseline/tree/master/DenseNet   |
-| SENet      | https://github.com/Qucy/cv-baseline/tree/master/SENet      |
-| MobileNet  | https://github.com/Qucy/cv-baseline/tree/master/MobileNet  |
-| ShuffleNet | https://github.com/Qucy/cv-baseline/tree/master/ShuffleNet |
-| SqueezeNet | https://github.com/Qucy/cv-baseline/tree/master/SqueezeNet |
-| Xception   | https://github.com/Qucy/cv-baseline/tree/master/Xception   |
+| Networks   | Hyper link                                                             |
+| ---------- | ---------------------------------------------------------------------- |
+| AlexNet    | https://github.com/Qucy/cv-baseline/tree/master/alexnet                |
+| VGG        | https://github.com/Qucy/cv-baseline/tree/master/vgg                    |
+| GoogleNet  | https://github.com/Qucy/cv-baseline/tree/master/googleNet              |
+| ResNet     | https://github.com/Qucy/cv-baseline/tree/master/ResNet                 |
+| DenseNet   | https://github.com/Qucy/cv-baseline/tree/master/DenseNet               |
+| SENet      | https://github.com/Qucy/cv-baseline/tree/master/SENet                  |
+| MobileNet  | https://github.com/Qucy/cv-baseline/tree/master/MobileNet              |
+| ShuffleNet | https://github.com/Qucy/cv-baseline/tree/master/ShuffleNet             |
+| SqueezeNet | https://github.com/Qucy/cv-baseline/tree/master/SqueezeNet             |
+| Xception   | https://github.com/Qucy/cv-baseline/tree/master/Xception               |
+| Distilling | https://github.com/Qucy/cv-baseline/tree/master/knowledge_distilling   |
 
 
 
